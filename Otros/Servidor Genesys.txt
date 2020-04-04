@@ -1,0 +1,3 @@
+genesys\administrador
+G1525.ALinc
+10.40.190.119

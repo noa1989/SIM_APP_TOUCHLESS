@@ -34,7 +34,7 @@ namespace API_APP_TOUCHLESS.Models
 
         }
 
-        public static object VALIDA_DBNULL(object ENTRADA)
+        public static string VALIDA_DBNULL(object ENTRADA)
         {
 
 
