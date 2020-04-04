@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29926.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_APP_TOUCHLESS", "API_APP_TOUCHLESS\API_APP_TOUCHLESS.csproj", "{2E0C68AB-B653-45AB-A120-E48E3F89259C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E0C68AB-B653-45AB-A120-E48E3F89259C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E0C68AB-B653-45AB-A120-E48E3F89259C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E0C68AB-B653-45AB-A120-E48E3F89259C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E0C68AB-B653-45AB-A120-E48E3F89259C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {723BF775-1B34-4965-AA9A-47C0AFE9CC71}
+	EndGlobalSection
+EndGlobal
