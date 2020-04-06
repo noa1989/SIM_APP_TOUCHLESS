@@ -21,7 +21,7 @@ namespace API_APP_TOUCHLESS.Models
                 OracleConnection CON = new OracleConnection(Parametros._STR_CON);
                 OracleCommand CMD = new OracleCommand();
                 CMD.Connection = CON;
-                CMD.CommandText = Parametros._PACKAGE + "SP_CHOFER";
+                CMD.CommandText = Parametros._PACKAGE + "SP_WS_CHOFER";
                 CMD.CommandType = CommandType.StoredProcedure;
 
 
@@ -68,7 +68,7 @@ namespace API_APP_TOUCHLESS.Models
                 OracleConnection CON = new OracleConnection(Parametros._STR_CON);
                 OracleCommand CMD = new OracleCommand();
                 CMD.Connection = CON;
-                CMD.CommandText = Parametros._PACKAGE + "SP_PROVEEDOR";
+                CMD.CommandText = Parametros._PACKAGE + "SP_WS_PROVEEDOR";
                 CMD.CommandType = CommandType.StoredProcedure;
 
 
@@ -113,7 +113,7 @@ namespace API_APP_TOUCHLESS.Models
                 OracleConnection CON = new OracleConnection(Parametros._STR_CON);
                 OracleCommand CMD = new OracleCommand();
                 CMD.Connection = CON;
-                CMD.CommandText = Parametros._PACKAGE + "SP_DESTINO";
+                CMD.CommandText = Parametros._PACKAGE + "SP_WS_DESTINO";
                 CMD.CommandType = CommandType.StoredProcedure;
 
 
@@ -276,7 +276,7 @@ namespace API_APP_TOUCHLESS.Models
                 OracleConnection CON = new OracleConnection(Parametros._STR_CON);
                 OracleCommand CMD = new OracleCommand();
                 CMD.Connection = CON;
-                CMD.CommandText = Parametros._PACKAGE + "SP_PEDIDO_COMPRA";
+                CMD.CommandText = Parametros._PACKAGE + "SP_WS_PEDIDO_COMPRA";
                 CMD.CommandType = CommandType.StoredProcedure;
 
                 CMD.Parameters.Add("PN_NRO_CTTM", OracleType.Number).Value = DATA.NRO_CTTM;
