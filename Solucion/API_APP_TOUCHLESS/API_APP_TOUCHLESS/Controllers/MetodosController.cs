@@ -19,6 +19,7 @@ namespace API_APP_TOUCHLESS.Controllers
             lista.Add("2");
             lista.Add("3");
             lista.Add("4");
+            lista.Add("5");
 
             return Request.CreateResponse(HttpStatusCode.OK, lista);
         }

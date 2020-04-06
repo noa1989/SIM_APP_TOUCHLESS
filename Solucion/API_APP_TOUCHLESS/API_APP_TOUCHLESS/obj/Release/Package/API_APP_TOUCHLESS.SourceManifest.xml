@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="C:\GENESYS\Sitios\SIM_APP_TOUCHLESS\SIM_APP_TOUCHLESS\Solucion\API_APP_TOUCHLESS\API_APP_TOUCHLESS\obj\Release\Package\PackageTmp" managedRuntimeVersion="v4.0" />
+  <setAcl path="C:\GENESYS\Sitios\SIM_APP_TOUCHLESS\SIM_APP_TOUCHLESS\Solucion\API_APP_TOUCHLESS\API_APP_TOUCHLESS\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="C:\GENESYS\Sitios\SIM_APP_TOUCHLESS\SIM_APP_TOUCHLESS\Solucion\API_APP_TOUCHLESS\API_APP_TOUCHLESS\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+</sitemanifest>
