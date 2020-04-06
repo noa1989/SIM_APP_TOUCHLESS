@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#34495e</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="toolbar_background">#34495e</color>
+    <color name="button_active">#009688</color>
+    <color name="button_inactive">#9F2CC9B8</color>
+    <color name="backPatente">#596a7b</color>
+    <color name="Black">#000</color>
+    <color name="textOrigen">#aeb6bf</color>
+    <color name="white">#FFFFFF</color>
+    <color name="franja_verde">#04988A</color>
+    <color name="fondo_gris">#ECECED</color>
+    <color name="GreenButton">#3f9405</color>
+    <color name="franja_red">#C41C09</color>
+    <color name="gray">#D5D5D5</color>
+    <color name="grilla_row">#C9EAE3</color>
+    <color name="grilla_text">#34495e</color>
+</resources>

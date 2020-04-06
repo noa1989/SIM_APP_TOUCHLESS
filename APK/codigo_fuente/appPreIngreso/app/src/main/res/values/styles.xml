@@ -1,0 +1,64 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppThemeDark" parent="Theme.AppCompat" />
+    <style name="AppThemeLight" parent="Theme.AppCompat.Light" />
+    <style name="AppThemeLight.DarkActionBar" parent="Theme.AppCompat.Light.DarkActionBar" />
+
+    <!-- custom style -->
+    <style name="radionbutton">
+        <item name="android:button">@drawable/radiobutton_drawable</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:backgroundDimEnabled">true</item>+
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="ColoredButton">
+        <item name="android:button">@drawable/button_active</item>
+    </style>
+
+    <style name="textViewIcon">
+        <item name="android:textSize">24dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingTop">10dp</item>
+    </style>
+
+    <style name="textViewText">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">#000</item>
+        <item name="android:paddingLeft">10dp</item>
+    </style>
+
+    <style name="linearLayoutOT">
+        <item name="android:background">@android:color/white</item>
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingBottom">13dp</item>
+    </style>
+
+    <style name="txtVersion">
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:paddingBottom">3dp</item>
+        <item name="android:width">0dp</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:gravity">right</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+</resources>
