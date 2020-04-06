@@ -18,13 +18,28 @@ namespace API_APP_TOUCHLESS.Models
         public string CHOFER_DV = string.Empty;
         public string CHOFER_DSC = string.Empty;
 
+        public string TRANS_RUT = string.Empty;
+        public string TRANS_DV = string.Empty;
+        public string TRANS_DSC = string.Empty;
+
         public string PLANTA_ID = string.Empty;
         public string PLANTA_DSC = string.Empty;
 
+        public string PLANTA_ORIGEN = string.Empty;
+        public string CANCHA_ORIGEN = string.Empty;
+        public string PLANTA_DESTINO = string.Empty;
+        public string CANCHA_DESTINO = string.Empty;
+
         public string GUIA = string.Empty;
         public string RECEP_ID = string.Empty;
+        public string FEC_RECEP_ID = string.Empty;
 
-        public string ESPECIE = string.Empty;
+        public string ESMA_COD = string.Empty;
+        public string ESMA_DSC = string.Empty;
+
+        public string PRMA_COD = string.Empty;
+        public string PRMA_DSC = string.Empty;
+
         public string EEPP = string.Empty;
 
         public string CAMION = string.Empty;
@@ -32,8 +47,6 @@ namespace API_APP_TOUCHLESS.Models
         public string CELULAR = string.Empty;
 
         public string PEDIDO = string.Empty;
-        public string CANCHA_ID = string.Empty;
-        public string CANCHA_DSC = string.Empty;
         public string COMUNA_ID = string.Empty;
         public string COMUNA_DSC = string.Empty;
         public string PREDIO_ID = string.Empty;
@@ -42,6 +55,9 @@ namespace API_APP_TOUCHLESS.Models
 
         public string PDF417 = string.Empty;
         public string BASE64 = string.Empty;
+
+        public string TICKET_VALDOR = string.Empty;
+        public string OT = string.Empty;
 
 
 

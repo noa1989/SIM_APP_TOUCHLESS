@@ -87,7 +87,7 @@ namespace API_APP_TOUCHLESS.Models
                 DATA.PROVEEDOR.PROVEEDOR_RUT = DATA.RUT;
                 DATA.PROVEEDOR.PROVEEDOR_DV = Parametros.VALIDA_DBNULL(CMD.Parameters["PV_DV"].Value.ToString());
                 DATA.PROVEEDOR.PROVEEDOR_DSC = Parametros.VALIDA_DBNULL(CMD.Parameters["PV_NOMBRE"].Value.ToString());
-               
+
 
                 CON.Close();
 
@@ -300,7 +300,7 @@ namespace API_APP_TOUCHLESS.Models
                         ROW.RPCM_PRED_CODIGO = ITEM["RPCM_PRED_CODIGO"].ToString();
                         ROW.PRED_DESCRIPCION = ITEM["PRED_DESCRIPCION"].ToString();
                         ROW.RPCM_ROPR_ROL = ITEM["RPCM_ROPR_ROL"].ToString();
-   
+
 
                         DATA.LISTA.Add(ROW);
 
@@ -407,6 +407,138 @@ namespace API_APP_TOUCHLESS.Models
                     }
 
                 }
+
+            }
+            catch (Exception EX)
+            {
+
+
+            }
+        }
+
+
+        public static void SP_WS_DATOS_GDE(VM_Recep DATA)
+        {
+
+            try
+            {
+
+                DataTable DT = new DataTable();
+
+                OracleConnection CON = new OracleConnection(Parametros._STR_CON);
+                OracleCommand CMD = new OracleCommand();
+                CMD.Connection = CON;
+                CMD.CommandText = Parametros._PACKAGE + "SP_DATOS_TERCEROS";
+                CMD.CommandType = CommandType.StoredProcedure;
+
+                CMD.Parameters.Add("PN_RUT", OracleType.Number).Value = DATA.RECEP.PROVEEDOR_RUT;
+                CMD.Parameters.Add("PN_GUIA", OracleType.Number).Value = DATA.RECEP.GUIA;
+                CMD.Parameters.Add("PV_PDF417", OracleType.Number).Value = DATA.RECEP.PDF417;
+
+
+                CMD.Parameters.Add("P_CURSOR", OracleType.Cursor).Direction = ParameterDirection.Output;
+
+                OracleDataAdapter DA = new OracleDataAdapter(CMD);
+
+
+
+                DA.Fill(DT);
+
+                if (DT.Rows.Count > 0)
+                {
+                    foreach (DataRow ITEM in DT.Rows)
+                    {
+                        Recepcion ROW = new Recepcion();
+
+
+                        ROW.TICKET_VALDOR = ITEM["TICKET_VALDOR"].ToString();
+                        ROW.OT = ITEM["OT"].ToString();
+                        ROW.PEDIDO = ITEM["PEDIDO_COMPRA"].ToString();
+                        ROW.COMUNA_ID = ITEM["COMU_CODI"].ToString();
+                        ROW.COMUNA_DSC = ITEM["COMU_NOMBRE"].ToString();
+                        ROW.PREDIO_ID = ITEM["PRED_CODIGO"].ToString();
+                        ROW.PREDIO_DSC = ITEM["PRED_NOMBRE"].ToString();
+                        ROW.ROL = ITEM["ROL"].ToString();
+                        ROW.ESMA_COD = ITEM["ESMA_CODIGO"].ToString();
+                        ROW.ESMA_DSC = ITEM["ESMA_NOMBRE"].ToString();
+                        ROW.PRMA_COD = ITEM["PRMA_CODIGO"].ToString();
+
+                        ROW.PRMA_DSC = ITEM["PRMA_NOMBRE"].ToString();
+                        ROW.EEPP = ITEM["CODIGO_INSUMO"].ToString();
+                        ROW.CAMION = ITEM["CAMION"].ToString();
+                        ROW.CARRO = ITEM["CARRO"].ToString();
+                        ROW.PLANTA_ORIGEN = ITEM["PLANTA_ORIGEN"].ToString();
+                        ROW.CANCHA_ORIGEN = ITEM["CANCHA_ORIGEN"].ToString();
+                        ROW.PLANTA_DESTINO = ITEM["PLANTA_DESTINO"].ToString();
+                        ROW.CANCHA_DESTINO = ITEM["CANCHA_DESTINO"].ToString();
+                        ROW.TRANS_RUT = ITEM["TRANSPORTE_RUT"].ToString();
+                        ROW.TRANS_DV = ITEM["TRANSPORTE_DV"].ToString();
+                        ROW.TRANS_DSC = ITEM["TRANSPORTE_NOMBRE"].ToString();
+
+                        ROW.CHOFER_RUT = ITEM["CONDUCTOR_RUT"].ToString();
+                        ROW.CHOFER_DV = ITEM["CONDUCTOR_DV"].ToString();
+                        ROW.CHOFER_DSC = ITEM["CONDUCTOR_NOMBRE"].ToString();
+
+
+                        DATA.RECEP = ROW;
+
+                    }
+
+                }
+
+            }
+            catch (Exception EX)
+            {
+
+
+            }
+        }
+
+
+        public static void SP_REGISTRO_PRESENTACION(VM_Recep DATA)
+        {
+
+            try
+            {
+
+                DataTable DT = new DataTable();
+
+                OracleConnection CON = new OracleConnection(Parametros._STR_CON);
+                OracleCommand CMD = new OracleCommand();
+                CMD.Connection = CON;
+                CMD.CommandText = Parametros._PACKAGE + "SP_REGISTRO_PRESENTACION";
+                CMD.CommandType = CommandType.StoredProcedure;
+
+                CMD.Parameters.Add("PN_PLANTA_CTAC", OracleType.Number).Value = DATA.RECEP.PLANTA_ID;
+                CMD.Parameters.Add("PV_USUARIO_PRESENTACION", OracleType.VarChar, 50).Value = DATA.USER.CAMION;
+                CMD.Parameters.Add("PV_PATENTE", OracleType.VarChar, 50).Value = DATA.RECEP.CAMION;
+                CMD.Parameters.Add("PV_PATENTE_CARRO", OracleType.VarChar, 50).Value = DATA.RECEP.CARRO;
+                CMD.Parameters.Add("PV_PRODUCTO_ID", OracleType.VarChar, 50).Value = DATA.RECEP.EEPP;
+                CMD.Parameters.Add("PV_RUT_PROVEEDOR", OracleType.VarChar, 50).Value = DATA.RECEP.PROVEEDOR_RUT;
+                CMD.Parameters.Add("PV_RUT_CHOFER", OracleType.VarChar, 50).Value = DATA.RECEP.CHOFER_RUT;
+                CMD.Parameters.Add("PN_GUIA", OracleType.Number).Value = DATA.RECEP.GUIA;
+
+
+
+                CMD.Parameters.Add("PN_ERROR", OracleType.Cursor).Direction = ParameterDirection.Output;
+                CMD.Parameters.Add("PC_MENSAJE", OracleType.Cursor).Direction = ParameterDirection.Output;
+                CMD.Parameters.Add("PN_RECEP_ID", OracleType.Cursor).Direction = ParameterDirection.Output;
+                CMD.Parameters.Add("PC_FECHA_RECEP", OracleType.Cursor).Direction = ParameterDirection.Output;
+
+                OracleDataAdapter DA = new OracleDataAdapter(CMD);
+
+
+                CON.Open();
+
+                CMD.ExecuteNonQuery();
+
+                DATA.ERROR_COD = int.Parse(Parametros.VALIDA_DBNULL(CMD.Parameters["PN_ERROR"].Value.ToString()));
+                DATA.ERROR_DSC = Parametros.VALIDA_DBNULL(CMD.Parameters["PC_MENSAJE"].Value.ToString());
+                DATA.RECEP.RECEP_ID = Parametros.VALIDA_DBNULL(CMD.Parameters["PN_RECEP_ID"].Value.ToString());
+                DATA.RECEP.FEC_RECEP_ID = Parametros.VALIDA_DBNULL(CMD.Parameters["PC_FECHA_RECEP"].Value.ToString());
+
+
+                CON.Close();
 
             }
             catch (Exception EX)
