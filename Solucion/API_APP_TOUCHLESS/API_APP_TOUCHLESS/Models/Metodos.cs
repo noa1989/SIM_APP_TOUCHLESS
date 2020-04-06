@@ -32,6 +32,9 @@ namespace API_APP_TOUCHLESS.Models
                 CMD.Parameters.Add("PV_CELULAR", OracleType.VarChar, 100).Direction = ParameterDirection.Output;
 
 
+                CMD.Parameters.Add("PN_NRO_ERROR", OracleType.Number).Direction = ParameterDirection.Output;
+                CMD.Parameters.Add("PV_MSG_ERROR", OracleType.VarChar, 5000).Direction = ParameterDirection.Output;
+
                 OracleDataAdapter DA = new OracleDataAdapter(CMD);
 
                 CON.Open();
@@ -50,7 +53,8 @@ namespace API_APP_TOUCHLESS.Models
             }
             catch (Exception EX)
             {
-
+                DATA.ERROR_COD = 1;
+                DATA.ERROR_DSC = EX.Message;
 
             }
 
@@ -77,6 +81,9 @@ namespace API_APP_TOUCHLESS.Models
                 CMD.Parameters.Add("PV_DV", OracleType.VarChar, 100).Direction = ParameterDirection.Output;
                 CMD.Parameters.Add("PV_NOMBRE", OracleType.VarChar, 100).Direction = ParameterDirection.Output;
 
+
+                CMD.Parameters.Add("PN_NRO_ERROR", OracleType.Number).Direction = ParameterDirection.Output;
+                CMD.Parameters.Add("PV_MSG_ERROR", OracleType.VarChar, 5000).Direction = ParameterDirection.Output;
 
                 OracleDataAdapter DA = new OracleDataAdapter(CMD);
 
@@ -363,7 +370,6 @@ namespace API_APP_TOUCHLESS.Models
             }
         }
 
-
         public static void SP_WS_DATOS_GDE(VM_Recep DATA)
         {
 
@@ -440,7 +446,6 @@ namespace API_APP_TOUCHLESS.Models
 
             }
         }
-
 
         public static void SP_REGISTRO_PRESENTACION(VM_Recep DATA)
         {

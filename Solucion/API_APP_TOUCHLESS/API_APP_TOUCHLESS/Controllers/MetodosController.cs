@@ -81,5 +81,21 @@ namespace API_APP_TOUCHLESS.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, DATA);
         }
+
+        [HttpPost]
+        public HttpResponseMessage SP_WS_DATOS_GDE(VM_Recep DATA)
+        {
+            Metodos.SP_WS_DATOS_GDE(DATA);
+
+            return Request.CreateResponse(HttpStatusCode.OK, DATA);
+        }
+
+        [HttpPost]
+        public HttpResponseMessage SP_REGISTRO_PRESENTACION(VM_Recep DATA)
+        {
+            Metodos.SP_REGISTRO_PRESENTACION(DATA);
+
+            return Request.CreateResponse(HttpStatusCode.OK, DATA);
+        }
     }
 }
