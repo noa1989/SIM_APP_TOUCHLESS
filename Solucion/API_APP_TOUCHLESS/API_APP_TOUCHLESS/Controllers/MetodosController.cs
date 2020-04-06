@@ -27,7 +27,8 @@ namespace API_APP_TOUCHLESS.Controllers
         public HttpResponseMessage SP_WS_CHOFER(VM_Chofer DATA)
         {
 
-            if (DATA == null) {
+            if (DATA == null)
+            {
 
                 DATA.ERROR_COD = 1;
                 DATA.ERROR_DSC = "Objeto en el body esta ingresando nulo";
@@ -160,7 +161,34 @@ namespace API_APP_TOUCHLESS.Controllers
         [HttpPost]
         public HttpResponseMessage SP_REGISTRO_PRESENTACION(VM_Recep DATA)
         {
+
+            if (DATA == null)
+            {
+
+                DATA.ERROR_COD = 1;
+                DATA.ERROR_DSC = "Objeto en el body esta ingresando nulo";
+
+                return Request.CreateResponse(HttpStatusCode.BadRequest, DATA);
+            }
             Metodos.SP_REGISTRO_PRESENTACION(DATA);
+
+            return Request.CreateResponse(HttpStatusCode.OK, DATA);
+        }
+
+
+        [HttpPost]
+        public HttpResponseMessage PRUEBA_SP_INSERTA_IMG(VM_Recep DATA)
+        {
+
+            if (DATA == null)
+            {
+
+                DATA.ERROR_COD = 1;
+                DATA.ERROR_DSC = "Objeto en el body esta ingresando nulo";
+
+                return Request.CreateResponse(HttpStatusCode.BadRequest, DATA);
+            }
+            Metodos.SP_INSERTA_IMG(DATA);
 
             return Request.CreateResponse(HttpStatusCode.OK, DATA);
         }

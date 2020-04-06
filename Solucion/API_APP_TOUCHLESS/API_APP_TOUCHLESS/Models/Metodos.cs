@@ -46,6 +46,9 @@ namespace API_APP_TOUCHLESS.Models
                 DATA.CHOFER.CHOFER_DSC = Parametros.VALIDA_DBNULL(CMD.Parameters["PV_NOMBRE"].Value.ToString());
                 DATA.CHOFER.CELULAR = Parametros.VALIDA_DBNULL(CMD.Parameters["PV_CELULAR"].Value.ToString());
 
+                DATA.ERROR_COD = int.Parse(Parametros.VALIDA_DBNULL(CMD.Parameters["PN_NRO_ERROR"].Value.ToString()));
+                DATA.ERROR_DSC = Parametros.VALIDA_DBNULL(CMD.Parameters["PV_MSG_ERROR"].Value.ToString());
+
 
                 CON.Close();
 
@@ -95,6 +98,9 @@ namespace API_APP_TOUCHLESS.Models
                 DATA.PROVEEDOR.PROVEEDOR_DV = Parametros.VALIDA_DBNULL(CMD.Parameters["PV_DV"].Value.ToString());
                 DATA.PROVEEDOR.PROVEEDOR_DSC = Parametros.VALIDA_DBNULL(CMD.Parameters["PV_NOMBRE"].Value.ToString());
 
+                DATA.ERROR_COD = int.Parse(Parametros.VALIDA_DBNULL(CMD.Parameters["PN_NRO_ERROR"].Value.ToString()));
+                DATA.ERROR_DSC = Parametros.VALIDA_DBNULL(CMD.Parameters["PV_MSG_ERROR"].Value.ToString());
+
 
                 CON.Close();
 
@@ -103,7 +109,8 @@ namespace API_APP_TOUCHLESS.Models
             catch (Exception EX)
             {
 
-
+                DATA.ERROR_COD = 1;
+                DATA.ERROR_DSC = EX.Message;
             }
 
 
@@ -160,7 +167,8 @@ namespace API_APP_TOUCHLESS.Models
             }
             catch (Exception EX)
             {
-
+                DATA.ERROR_COD = 1;
+                DATA.ERROR_DSC = EX.Message;
 
             }
         }
@@ -213,7 +221,8 @@ namespace API_APP_TOUCHLESS.Models
             }
             catch (Exception EX)
             {
-
+                DATA.ERROR_COD = 1;
+                DATA.ERROR_DSC = EX.Message;
 
             }
         }
@@ -268,7 +277,8 @@ namespace API_APP_TOUCHLESS.Models
             catch (Exception EX)
             {
 
-
+                DATA.ERROR_COD = 1;
+                DATA.ERROR_DSC = EX.Message;
             }
         }
 
@@ -318,7 +328,8 @@ namespace API_APP_TOUCHLESS.Models
             }
             catch (Exception EX)
             {
-
+                DATA.ERROR_COD = 1;
+                DATA.ERROR_DSC = EX.Message;
 
             }
         }
@@ -366,7 +377,8 @@ namespace API_APP_TOUCHLESS.Models
             catch (Exception EX)
             {
 
-
+                DATA.ERROR_COD = 1;
+                DATA.ERROR_DSC = EX.Message;
             }
         }
 
@@ -497,6 +509,67 @@ namespace API_APP_TOUCHLESS.Models
             {
 
 
+            }
+        }
+
+
+
+        public static void SP_INSERTA_IMG(VM_Recep DATA)
+        {
+
+            try
+            {
+
+                object base64 = DBNull.Value;
+
+                if (DATA.RECEP.BASE64.Length == 0)
+                {
+                    base64 = DBNull.Value;
+                }
+                else
+                {
+                    base64 = DATA.RECEP.BASE64;
+                }
+
+                DataTable DT = new DataTable();
+
+                OracleConnection CON = new OracleConnection(Parametros._STR_CON);
+                OracleCommand CMD = new OracleCommand();
+                CMD.Connection = CON;
+                CMD.CommandText = Parametros._PACKAGE + "SP_INSERTA_IMG";
+                CMD.CommandType = CommandType.StoredProcedure;
+
+                CMD.Parameters.Add("PN_RECEP_ID", OracleType.Number).Value = DATA.RECEP.RECEP_ID;
+                CMD.Parameters.Add("PN_GUIA", OracleType.Number).Value = DATA.RECEP.GUIA;
+                CMD.Parameters.Add("PN_RUT", OracleType.Number).Value = DATA.RECEP.PROVEEDOR_RUT;
+                CMD.Parameters.Add("PC_ARCHIVO", OracleType.Clob).Value = base64;
+
+
+                CMD.Parameters.Add("PN_NRO_ERROR", OracleType.Number).Direction = ParameterDirection.Output;
+                CMD.Parameters.Add("PV_MSG_ERROR", OracleType.VarChar,5000).Direction = ParameterDirection.Output;
+
+                OracleDataAdapter DA = new OracleDataAdapter(CMD);
+
+
+                CON.Open();
+
+                // start transaction
+                CMD.Transaction = CON.BeginTransaction();
+                CMD.ExecuteNonQuery();
+                CMD.Transaction.Commit();
+
+                DATA.ERROR_COD = int.Parse(Parametros.VALIDA_DBNULL(CMD.Parameters["PN_NRO_ERROR"].Value.ToString()));
+                DATA.ERROR_DSC = Parametros.VALIDA_DBNULL(CMD.Parameters["PV_MSG_ERROR"].Value.ToString());
+
+
+                CON.Close();
+
+            }
+            catch (Exception EX)
+            {
+
+                DATA.ERROR_COD = 1;
+                DATA.ERROR_DSC = EX.Message;
             }
         }
 
