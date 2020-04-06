@@ -68,6 +68,11 @@ namespace API_APP_TOUCHLESS.Models
         public Recepcion RECEP = new Recepcion();
         public Usuario USER = new Usuario();
 
+        public string PDF417 = string.Empty;
+        public string PROVEEDOR_RUT = string.Empty;
+        public string GUIA = string.Empty;
+
+
         public int ERROR_COD = 0;
         public string ERROR_DSC = string.Empty;
 
